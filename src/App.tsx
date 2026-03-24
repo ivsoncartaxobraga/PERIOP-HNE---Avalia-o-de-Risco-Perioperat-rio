@@ -1385,6 +1385,14 @@ export default function App() {
                               <p className="text-stone-400 font-bold uppercase text-[10px]">Respiratório</p>
                               <p className="font-bold text-stone-800">{patient.respExam?.status} {patient.respExam?.details ? `- ${patient.respExam.details}` : ''}</p>
                             </div>
+                            <div>
+                              <p className="text-stone-400 font-bold uppercase text-[10px]">Abdomen</p>
+                              <p className="font-bold text-stone-800">{patient.abdExam?.status} {patient.abdExam?.details ? `- ${patient.abdExam.details}` : ''}</p>
+                            </div>
+                            <div>
+                              <p className="text-stone-400 font-bold uppercase text-[10px]">Extremidades</p>
+                              <p className="font-bold text-stone-800">{patient.extExam?.status} {patient.extExam?.details ? `- ${patient.extExam.details}` : ''}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1444,23 +1452,25 @@ export default function App() {
                       </div>
 
                       {/* Scores */}
-                      <div className="space-y-4">
-                        <h4 className="text-xs font-bold uppercase text-emerald-600 tracking-widest border-b border-emerald-100 pb-2">Escores de Risco</h4>
-                        <div className="grid grid-cols-3 gap-4 text-center">
-                          <div className="bg-stone-50 p-3 rounded-xl">
-                            <p className="text-[10px] font-bold text-stone-400 uppercase">RCRI</p>
-                            <p className="text-xl font-black text-stone-800">{rcriScore}</p>
-                          </div>
-                          <div className="bg-stone-50 p-3 rounded-xl">
-                            <p className="text-[10px] font-bold text-stone-400 uppercase">AUB-HAS2</p>
-                            <p className="text-xl font-black text-stone-800">{aubHas2Score}</p>
-                          </div>
-                          <div className="bg-stone-50 p-3 rounded-xl">
-                            <p className="text-[10px] font-bold text-stone-400 uppercase">VSG-CRI</p>
-                            <p className="text-xl font-black text-stone-800">{vsgCriScore}</p>
+                      {patient.electiveRisk !== 'Baixo' && (
+                        <div className="space-y-4">
+                          <h4 className="text-xs font-bold uppercase text-emerald-600 tracking-widest border-b border-emerald-100 pb-2">Escores de Risco</h4>
+                          <div className="grid grid-cols-3 gap-4 text-center">
+                            <div className="bg-stone-50 p-3 rounded-xl">
+                              <p className="text-[10px] font-bold text-stone-400 uppercase">RCRI</p>
+                              <p className="text-xl font-black text-stone-800">{rcriScore}</p>
+                            </div>
+                            <div className="bg-stone-50 p-3 rounded-xl">
+                              <p className="text-[10px] font-bold text-stone-400 uppercase">AUB-HAS2</p>
+                              <p className="text-xl font-black text-stone-800">{aubHas2Score}</p>
+                            </div>
+                            <div className="bg-stone-50 p-3 rounded-xl">
+                              <p className="text-[10px] font-bold text-stone-400 uppercase">VSG-CRI</p>
+                              <p className="text-xl font-black text-stone-800">{vsgCriScore}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Conclusion */}
                       <div className="space-y-4 bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
