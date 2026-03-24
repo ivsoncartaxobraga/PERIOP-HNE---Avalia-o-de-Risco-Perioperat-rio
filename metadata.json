@@ -1,0 +1,5 @@
+{
+  "name": "PERIOP HNE - Avaliação de Risco Perioperatório",
+  "description": "Aplicativo de avaliação de risco cirúrgico baseado nas Diretrizes da Sociedade Brasileira de Cardiologia (SBC - 2024).",
+  "requestFramePermissions": []
+}

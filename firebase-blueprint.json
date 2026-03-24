@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "Assessment": {
+      "title": "Assessment",
+      "description": "A perioperative risk assessment for a patient.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "doctorCRM": { "type": "string" },
+        "name": { "type": "string" },
+        "dob": { "type": "string" },
+        "age": { "type": "number" },
+        "date": { "type": "string" },
+        "clinicalComplaints": { "type": "string" },
+        "proposedSurgery": { "type": "string" },
+        "functionalCapacity": { "type": "string" },
+        "medications": { "type": "string" },
+        "allergies": { "type": "string" },
+        "riskFactors": { "type": "array", "items": { "type": "string" } },
+        "otherRiskFactors": { "type": "string" },
+        "pa": { "type": "string" },
+        "fc": { "type": "string" },
+        "cvExam": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "respExam": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "abdExam": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "extExam": { "type": "object", "properties": { "status": { "type": "string" }, "details": { "type": "string" } } },
+        "labExams": { "type": "string" },
+        "ecg": { "type": "string" },
+        "echo": { "type": "string" },
+        "cath": { "type": "string" },
+        "otherExams": { "type": "string" },
+        "intrinsicRisk": { "type": "string" },
+        "intrinsicRiskItem": { "type": "string" },
+        "hemorrhagicRisk": { "type": "string" },
+        "hemorrhagicRiskItem": { "type": "string" },
+        "isUrgency": { "type": "boolean" },
+        "hasSevereCondition": { "type": "boolean" },
+        "severeConditions": { "type": "array", "items": { "type": "string" } },
+        "isElective": { "type": "boolean" },
+        "electiveRisk": { "type": "string" },
+        "rcriScore": { "type": "number" },
+        "rcriItems": { "type": "array", "items": { "type": "string" } },
+        "aubHas2Score": { "type": "number" },
+        "aubHas2Items": { "type": "array", "items": { "type": "string" } },
+        "vsgCriScore": { "type": "number" },
+        "vsgCriItems": { "type": "array", "items": { "type": "string" } },
+        "finalRisk": { "type": "string" },
+        "conduct": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "doctorName", "doctorCRM", "name", "date", "authorUid"]
+    },
+    "AutoText": {
+      "title": "AutoText",
+      "description": "Predefined text snippets for clinical orientations.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "authorUid": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "text", "authorUid"]
+    }
+  },
+  "firestore": {
+    "/assessments/{assessmentId}": {
+      "schema": "Assessment",
+      "description": "Collection of perioperative risk assessments."
+    },
+    "/autotexts/{autotextId}": {
+      "schema": "AutoText",
+      "description": "Collection of predefined text snippets."
+    }
+  }
+}
